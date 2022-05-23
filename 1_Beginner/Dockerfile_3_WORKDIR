@@ -1,0 +1,10 @@
+FROM ubuntu
+
+RUN ls
+
+WORKDIR /my_workdir
+
+ADD hello-world.sh .
+
+RUN ls
+RUN ls /

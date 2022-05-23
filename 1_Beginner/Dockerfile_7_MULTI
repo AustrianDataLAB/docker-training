@@ -1,0 +1,20 @@
+FROM golang as builder
+
+## BUILD BINARY
+WORKDIR /base
+ADD hello-world.go .
+RUN go build ./hello-world.go
+
+## CHANGE PARENT IMAGE
+FROM scratch
+
+## CHANGE USER
+USER 1000:1000
+
+## CHANGE WORKING DIRECTORY
+WORKDIR /scratch
+
+## COPY BINARY
+COPY --from=builder /base/hello-world .
+
+CMD ["./hello-world"]

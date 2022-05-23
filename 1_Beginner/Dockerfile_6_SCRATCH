@@ -1,0 +1,7 @@
+FROM base as builder
+
+## CHANGE PARENT IMAGE
+FROM scratch
+WORKDIR /scratch
+COPY --from=builder /base/hello-world .
+CMD ["./hello-world"]

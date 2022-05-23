@@ -1,0 +1,7 @@
+FROM ubuntu
+
+RUN id
+
+USER 1000:1000
+
+RUN id
