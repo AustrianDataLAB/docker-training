@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  dev:
+    container_name: my_dev_container
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VARIANT: 1-bullseye
+    volumes:
+      - .:/workspace:cached
+    working_dir: /workspace
+    command: "sleep infinity"
